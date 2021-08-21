@@ -29,16 +29,20 @@
                 div =
                 results.appendChild(document.createElement('div'));
                 div.innerHTML = response[i];
+                div.className = "border-bottom py-2"
                 div.onclick = function() {
+                    // console.log(this.innerHTML);
                     chooseResult(this);
                 };
             }
         }
     }
     function chooseResult(result) { 
+
         results.style.display = 'none'; 
         result.className = ''; 
         selectedResult = -1; 
+        searchElement.value = result.innerHTML;
         searchElement.focus(); 
     } 
     searchElement.onkeyup = function(e) {
