@@ -9,5 +9,5 @@
             array_push($results, $data[$i]); 
         }
     }
-    echo implode('|', $results);
+echo implode('|', $results);
 ?>
