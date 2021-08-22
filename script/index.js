@@ -25,15 +25,21 @@
             response = response.split('|');
             var responseLen = response.length;
             results.innerHTML = ''; 
-            for (var i = 0, div ; i < responseLen ; i++) {
-                div =
-                results.appendChild(document.createElement('div'));
-                div.innerHTML = response[i];
-                div.className = "border-bottom py-2 nav-link";
-                div.onclick = function() {
-                    // console.log(this.innerHTML);
-                    chooseResult(this);
-                };
+            if(responseLen > 0){
+                for (var i = 0, div ; i < responseLen ; i++) {
+                    div =
+                    results.appendChild(document.createElement('div'));
+                    div.innerHTML = response[i];
+                    div.className = "border-bottom py-2 nav-link";
+                    div.onclick = function() {
+                        // console.log(this.innerHTML);
+                        chooseResult(this);
+                    };
+                }
+            }else{
+               let div = results.appendChild(document.createElement('div'));
+               div.className = "border-bottom py-2 nav-link";
+               div.innerHTML = "Aucun résultat trouvé pour " + searchElement.value
             }
         }
     }
@@ -45,6 +51,18 @@
         searchElement.value = result.innerHTML;
         searchElement.focus(); 
     } 
+    function onHandleSearch(keyword, btn){
+        // alert(keyword)
+        const span = document.createElement('span');
+        $(span).attr({
+            class: "text-center spinner-grow spinner-grow-sm",
+            id: "spinner-span"
+        })
+        $(btn).append([span])
+    }
+    document.getElementById('btn-search').onclick = function(e){
+        if(searchElement.value !== '' && searchElement.value !== ' ') onHandleSearch(searchElement.value, this)
+    }
     searchElement.onkeyup = function(e) {
         e = e || window.event; 
         var divs = results.getElementsByTagName('div');
