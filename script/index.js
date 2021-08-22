@@ -54,11 +54,21 @@
     function onHandleSearch(keyword, btn){
         // alert(keyword)
         const span = document.createElement('span');
+        const b = document.createElement('span');
         $(span).attr({
             class: "text-center spinner-grow spinner-grow-sm",
             id: "spinner-span"
         })
+        $(b).attr({
+            class: "text-center text-danger",
+            id: "spinner-lab"
+        }).html("ceci est un test | l'app n'est nullement connectée à aucune base des données")
         $(btn).append([span]).attr({disabled: "disabled"})
+        $(".loading").append(b).attr({class: ""})
+        setTimeout(() => {
+            $("#spinner-lab").remove();
+            $(btn).removeAttr("disabled")
+        }, 5000)
     }
     document.getElementById('btn-search').onclick = function(e){
         if(searchElement.value !== '' && searchElement.value !== ' ') onHandleSearch(searchElement.value, this)
