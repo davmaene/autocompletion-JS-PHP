@@ -68,6 +68,7 @@
         setTimeout(() => {
             $("#spinner-lab").remove();
             $(btn).removeAttr("disabled")
+            $('#spinner-span').remove()
         }, 5000)
     }
     document.getElementById('btn-search').onclick = function(e){
