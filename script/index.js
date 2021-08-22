@@ -58,7 +58,7 @@
             class: "text-center spinner-grow spinner-grow-sm",
             id: "spinner-span"
         })
-        $(btn).append([span])
+        $(btn).append([span]).attr({disabled: "disabled"})
     }
     document.getElementById('btn-search').onclick = function(e){
         if(searchElement.value !== '' && searchElement.value !== ' ') onHandleSearch(searchElement.value, this)
