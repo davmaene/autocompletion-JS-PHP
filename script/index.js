@@ -29,7 +29,7 @@
                 div =
                 results.appendChild(document.createElement('div'));
                 div.innerHTML = response[i];
-                div.className = "border-bottom py-2"
+                div.className = "border-bottom py-2 nav-link";
                 div.onclick = function() {
                     // console.log(this.innerHTML);
                     chooseResult(this);
@@ -51,7 +51,7 @@
         if (e.keyCode == 38 && selectedResult > -1) { 
                 divs[selectedResult--].className = '';
             if (selectedResult > -1) {
-                divs[selectedResult].className = 'bg-danger';
+                divs[selectedResult].className = 'border-bottom py-2 nav-link';
             }
         }
         else if (e.keyCode == 40 && selectedResult < divs.length - 1) {
@@ -59,7 +59,7 @@
             if (selectedResult > -1) { 
                 divs[selectedResult].className = '';
             }
-            divs[++selectedResult].className = 'bg-danger';
+            divs[++selectedResult].className = 'border-bottom py-2 nav-link';
         }
         else if (e.keyCode == 13 && selectedResult > -1) { 
             chooseResult(divs[selectedResult]);
