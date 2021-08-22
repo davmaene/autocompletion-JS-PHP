@@ -63,12 +63,14 @@
             class: "text-center text-danger",
             id: "spinner-lab"
         }).html("ceci est un test | l'app n'est nullement connectée à aucune base des données")
+
         $(btn).append([span]).attr({disabled: "disabled"})
-        $(".loading").append(b).attr({class: ""})
+        $(".loading").append([b])
+
         setTimeout(() => {
             $("#spinner-lab").remove();
             $(btn).removeAttr("disabled")
-            $('#spinner-span').remove()
+            $('#spinner-span').remove();
         }, 5000)
     }
     document.getElementById('btn-search').onclick = function(e){
